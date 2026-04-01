@@ -15,20 +15,18 @@
 // Make sure it works before continuing!
 
 // STEP 3: Paste your API URL here
-const API_URL = "PASTE_API_URL_HERE";
+const API_URL = "https://api.adviceslip.com/advice";
 
 // ========================================
 // STEP 4: Write Your Fetch Code
 // ========================================
 // TODO: Uncomment the code below and replace PASTE_API_URL_HERE with your API_URL variable
 
-/*
-fetch("PASTE_API_URL_HERE")
+fetch(API_URL)
     .then(response => response.json())
     .then(data => {
         console.log(data);
     });
-*/
 
 // After uncommenting, save and refresh your page.
 // Open the browser console (F12) to see your data!
@@ -41,15 +39,13 @@ fetch("PASTE_API_URL_HERE")
 // 2. Uncomment the code below
 // 3. Update the data property to match your API (e.g., data.fact, data.message, etc.)
 
-/*
 const output = document.getElementById("output");
 
 fetch(API_URL)
     .then(response => response.json())
     .then(data => {
-        output.innerText = data.fact; // TODO: Change 'fact' to match your API's data structure
+        output.innerText = data.slip.advice; // TODO: Change 'fact' to match your API's data structure
     });
-*/
 
 // ========================================
 // STEP 6: Add a Button to Fetch New Data
@@ -58,17 +54,15 @@ fetch(API_URL)
 // 1. Go to index.html and add: <button id="fetch-btn">Get New Data</button>
 // 2. Uncomment the code below
 
-/*
 const button = document.getElementById("fetch-btn");
 
 button.addEventListener("click", function() {
     fetch(API_URL)
         .then(response => response.json())
         .then(data => {
-            output.innerText = data.fact; // TODO: Change 'fact' to match your API's data structure
+            output.innerText = data.slip.advice; // TODO: Change 'fact' to match your API's data structure
         });
 });
-*/
 
 // ========================================
 // STEP 7: BONUS - Add Image Support (if your API includes images)
