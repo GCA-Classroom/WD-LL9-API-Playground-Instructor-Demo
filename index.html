@@ -1,52 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fetch Quest Demo</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">🐾 API Playground</div>
-        <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#demo">Demo</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Explorer</title>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h1>Master API Integration with Live Examples</h1>
-        <p class="hero-subtitle">
-          Learn how to fetch data from APIs with hands-on, interactive
-          demonstrations. Perfect for students and developers getting started
-          with web development.
-        </p>
-        <a href="#demo" class="cta-button">Try Live Demo</a>
-      </div>
-    </section>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Instructor Demo Section -->
-    <section class="demo-section" id="demo">
-      <div class="container">
-        <h2>🐾 Cat Fact Generator</h2>
-        <p class="description">
-          Click the button below to fetch a random cat fact from a live API.
-        </p>
-        <button id="fact-button">Get Cat Fact</button>
-        <div id="fact-display" class="fact-box">
-          Your cat fact will appear here...
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- The signature yellow frame, in the spirit of the magazine's cover border -->
+  <div class="frame">
+
+    <header class="masthead">
+      <p class="eyebrow">FIELD GUIDE &middot; VOL. 01</p>
+      <h1 class="title">COUNTRY EXPLORER</h1>
+      <p class="subtitle">Dispatch reports from anywhere on Earth</p>
+    </header>
+
+    <main>
+      <!-- SEARCH -->
+      <section class="search-panel" aria-label="Search for a country">
+        <label for="countryInput" class="search-label">Enter a country name</label>
+        <div class="search-row">
+          <input
+            type="text"
+            id="countryInput"
+            placeholder="e.g. Kenya, Japan, Peru..."
+            autocomplete="off"
+          >
+          <button id="searchBtn" type="button">Explore</button>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <script src="script.js"></script>
-  </body>
+      <!-- LOADING STATE -->
+      <div id="loading" class="loading hidden">
+        <span class="compass" aria-hidden="true">&#9678;</span>
+        <span>Charting course&hellip;</span>
+      </div>
+
+      <!-- ERROR STATE -->
+      <div id="errorMessage" class="error hidden" role="alert"></div>
+
+      <!-- RESULT CARD -->
+      <section id="resultCard" class="result-card hidden" aria-live="polite">
+
+        <img id="flagImg" class="flag" src="" alt="">
+
+        <h2 id="countryName" class="country-name"></h2>
+
+        <dl class="stat-grid">
+          <div class="stat">
+            <dt>Capital</dt>
+            <dd id="capitalValue">&mdash;</dd>
+          </div>
+          <div class="stat">
+            <dt>Region</dt>
+            <dd id="regionValue">&mdash;</dd>
+          </div>
+          <div class="stat">
+            <dt>Population</dt>
+            <dd id="populationValue">&mdash;</dd>
+          </div>
+        </dl>
+
+        <div class="languages-block">
+          <dt>Languages</dt>
+          <dd id="languagesValue">&mdash;</dd>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="masthead-footer">
+      <p>Data courtesy of the REST Countries API</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
